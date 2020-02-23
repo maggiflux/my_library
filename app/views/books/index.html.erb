@@ -1,0 +1,60 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+
+<h1><strong>Books</strong></h1>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Year</th>
+      <th>Status</th>
+      <th>Borrow date</th>
+      <th>Return date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.year %></td>
+        <td><%= book.status %></td>
+        <td><%= book.borrow_date %></td>
+        <td><%= book.return_date %></td>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: "Don't do it  T_T"  } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<div class="botonnewbook">
+<button class="btn btn-outline-dark" style="text-decoration:none">
+<%= link_to 'New Book', new_book_path %>
+</button>
+</div>
+
+<br>
+<br>
+<br>
+<%= search_form_for @q do |f| %>
+  <div class="mr-5 pr-5">
+  <h5><%= f.label :status_eq, "Status" %></h5>
+  <%= f.select :status_eq, options_for_select(Book.statuses , @q.status_eq), {},{class: "form-control"} %>
+  <br>
+  <button class="btn btn-outline-dark" type="submit">Search</button>
+<% end %>
+</div>
+<br>
+<br>
+<br>
+

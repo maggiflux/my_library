@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  year: MyString
+  status: MyString
+  borrow_date: MyString
+  return_date: MyString
+
+two:
+  title: MyString
+  author: MyString
+  year: MyString
+  status: MyString
+  borrow_date: MyString
+  return_date: MyString
